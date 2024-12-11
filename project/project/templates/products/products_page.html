@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block podsvetslug %}
+<a href="{% slugurl 'home' %}" class="nav-item nav-link">Домой</a>
+<a href="{% slugurl 'abouttt' %}" class="nav-item nav-link">О нас</a>
+<a href="{% slugurl 'products' %}" class="nav-item nav-link active">Продукты</a>
+<a href="{% slugurl 'store' %}" class="nav-item nav-link">Магазин</a>
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Страницы</a>
+    <div class="dropdown-menu bg-light rounded-0 m-0">
+        <a href="{% slugurl 'features' %}" class="dropdown-item">Особенности</a>
+        <a href="{% slugurl 'blog' %}" class="dropdown-item">Блог</a>
+        <a href="{% slugurl 'testimonial' %}" class="dropdown-item">Свидетельство</a>
+        <a href="{% slugurl 'mistake' %}" class="dropdown-item">Ошибка 404</a>
+
+    </div>
+</div>
+<a href="{% slugurl 'contact' %}" class="nav-item nav-link">Контакты</a>
+</div>
+<div class="border-start ps-4 d-none d-lg-block">
+<button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
+{% endblock podsvetslug %}
+    {% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">Продукты </h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/">Домой</a></li>
+                    <li class="breadcrumb-item text-dark" aria-current="page">Продукты</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Products Start -->
+    <div class="container-fluid product py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="fs-5 fw-medium fst-italic text-primary">Наши продукты</p>
+                <h1 class="display-6">{{ self.products_zagolovok }}</h1>
+            </div>
+            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
+                <a href="" class="d-block product-item rounded">
+                    {% image self.products_picture_1 fill-600x400 as pic_1 %}
+                    <img src="{{pic_1.url}}" alt="">
+                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                        <h4 class="text-primary">{{ self.products_opisanie_1 }}</h4>
+                        <span class="text-body">{{ self.products_opisanie_2 }}</span>
+                    </div>
+                </a>
+                    {% image self.products_picture_2 fill-600x400 as pic_2 %}
+                <a href="" class="d-block product-item rounded">
+                    <img src="{{ pic_2.url }}" alt="">
+                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                        <h4 class="text-primary">{{ self.products_opisanie_3 }}</h4>
+                        <span class="text-body">{{ self.products_opisanie_4 }}</span>
+                    </div>
+                </a>
+                    {% image self.products_picture_3 fill-600x400 as pic_3 %}
+                <a href="" class="d-block product-item rounded">
+                    <img src="{{ pic_3.url }}" alt="">
+                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                        <h4 class="text-primary">{{ self.products_opisanie_5 }}</h4>
+                        <span class="text-body">{{ self.products_opisanie_6}}</span>
+                    </div>
+                </a>
+                    {% image self.products_picture_4 fill-600x400 as pic_4%}
+                <a href="" class="d-block product-item rounded">
+                    <img src="{{ pic_4.url }}" alt="">
+                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                        <h4 class="text-primary">{{ self.products_opisanie_7 }}</h4>
+                        <span class="text-body">{{ self.products_opisanie_8 }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+
+    {% endblock content %}
+
+    
+</body>
+
+</html>
